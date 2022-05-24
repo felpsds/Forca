@@ -6,14 +6,20 @@ from pygame.locals import *
 import random
 from words import word_list
 
+# Largura em pixeis
 SCREEN_WIDTH = 900
+# Altura em pixeis
 SCREEN_HEIGHT = 1000
 
+# Inicia a PYGAME
 pygame.init()
+
+# Tamanho define o tamanho do display
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+# Titulo da pagina
 pygame.display.set_caption('Simple Games')
 
-#botoes
+# Carrega as imagens do menu (botões)
 start_img = pygame.image.load(os.path.join('Img','Play.png')).convert_alpha()
 exit_img = pygame.image.load(os.path.join('Img','Exit.png')).convert_alpha()
 logo = pygame.image.load(os.path.join('Img','Logo.png')).convert_alpha()
@@ -129,11 +135,14 @@ def eegg():
                     eegg = False
         
         pygame.display.update()
-
+        
+# Começa o menu do jogo da forca
 def forca():
-
+    # Função que pega a palavra
     def get_word():
+        # Palavra aleatória da lista
         word = random.choice(word_list)
+        # Retorna a palavra em maúisculo.
         return word.upper()
 
     def draw_btns(BUTTONS):
@@ -180,7 +189,7 @@ def forca():
         IMAGES.append(image_copy)
 
 
-    # Buttons
+    # Botões 
     ROWS = 2
     COLS = 13
     GAP = 20
